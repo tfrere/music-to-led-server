@@ -22,17 +22,17 @@ def fadeOutPixels(pixels, value):
                 pixels[i][y] -= value
 
 
-class PianoNote():
+class PianoEcho():
 
-    def initPianoNote(self):
+    def initPianoEcho(self):
 
         self.notes_on = []
         self.notes_playing = []
         self.pitch = 0
         self.value = 0
 
-    def visualizePianoNote(self):
-        """PianoNote midi visualizer"""
+    def visualizePianoEcho(self):
+        """PianoEcho midi visualizer"""
 
         roll_value = int(1 * (self.active_state.time_interval / 100)) + 1
 

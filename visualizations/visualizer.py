@@ -15,6 +15,7 @@ from visualizations.functions.sound.channelFlash import ChannelFlash
 from visualizations.functions.sound.spectrum import Spectrum
 
 from visualizations.functions.midi.pianoNote import PianoNote
+from visualizations.functions.midi.pianoEcho import PianoEcho
 from visualizations.functions.midi.pianoScroll import PianoScroll
 from visualizations.functions.midi.pitchwheelFlash import PitchwheelFlash
 
@@ -30,7 +31,7 @@ from visualizations.functions.generic.fire import Fire
 from scipy.ndimage.filters import gaussian_filter1d
 
 
-class Visualizer(Spectrum, FullColor, FadeOut, Clear, AlternateColors, TransitionColors, DrawLine, Scroll, ChannelIntensity, ChannelFlash, Energy, PianoNote, PianoScroll, Fire, PitchwheelFlash):
+class Visualizer(Spectrum, FullColor, FadeOut, Clear, AlternateColors, TransitionColors, DrawLine, Scroll, ChannelIntensity, ChannelFlash, Energy, PianoNote, PianoEcho, PianoScroll, Fire, PitchwheelFlash):
 
     def __init__(self, config, index):
         """ The main class that contain all viz functions """
@@ -72,6 +73,7 @@ class Visualizer(Spectrum, FullColor, FadeOut, Clear, AlternateColors, Transitio
 
         self.initPianoNote()
         self.initPianoScroll()
+        self.initPianoEcho()
         self.initPitchwheelFlash()
 
         self.initAlternateColors()
@@ -172,6 +174,8 @@ class Visualizer(Spectrum, FullColor, FadeOut, Clear, AlternateColors, Transitio
             pixels = self.visualizePianoScroll()
         elif(self.active_state.active_visualizer_effect == "piano_note"):
             pixels = self.visualizePianoNote()
+        elif(self.active_state.active_visualizer_effect == "piano_echo"):
+            pixels = self.visualizePianoEcho()
         elif(self.active_state.active_visualizer_effect == "pitchwheel_flash"):
             pixels = self.visualizePitchwheelFlash()
 

@@ -129,7 +129,7 @@ strips:
         audio_decay: 0.5
         division_value: 0
         max_brightness: 255
-        time_interval: 0
+        time_interval: 1
         chunk_size: 50
         blur_value: 8.0
         is_reverse: false
@@ -159,7 +159,7 @@ strips:
         audio_decay: 0.1
         division_value: 0
         max_brightness: 255
-        time_interval: 0
+        time_interval: 1
         chunk_size: 8
         blur_value: 4.5
         is_reverse: false

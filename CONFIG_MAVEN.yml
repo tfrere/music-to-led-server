@@ -97,7 +97,7 @@ strips:
         audio_decay: 0.5
         division_value: 1
         max_brightness: 255
-        time_interval: 0
+        time_interval: 1
         chunk_size: 50
         blur_value: 8.0
         is_reverse: false

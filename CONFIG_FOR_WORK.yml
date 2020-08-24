@@ -67,7 +67,7 @@ strips:
       scale: 1
   states:
   - name: Rainbow
-    active_visualizer_effect: piano_note
+    active_visualizer_effect: alternate_color_chunks
     active_color_scheme_index: 0
     active_audio_channel_index: 1
     audio_samples_filter_min: 0
@@ -75,10 +75,10 @@ strips:
     audio_gain: 0.1
     audio_decay: 0.5
     division_value: 0
-    max_brightness: 255
-    time_interval: 0
-    chunk_size: 30
-    blur_value: 0.1
+    max_brightness: 57
+    time_interval: 389
+    chunk_size: 29
+    blur_value: 10.9
     is_reverse: false
     is_mirror: false
   - name: TestInt
@@ -94,5 +94,20 @@ strips:
     time_interval: 120
     chunk_size: 5
     blur_value: 0.1
+    is_reverse: false
+    is_mirror: false
+  - name: rwar
+    active_visualizer_effect: alternate_color_chunks
+    active_color_scheme_index: 0
+    active_audio_channel_index: 0
+    audio_samples_filter_min: 0
+    audio_samples_filter_max: 24
+    audio_gain: 1
+    audio_decay: 0.1
+    division_value: 0
+    max_brightness: 120
+    time_interval: 1
+    chunk_size: 50
+    blur_value: 14.2
     is_reverse: false
     is_mirror: false
