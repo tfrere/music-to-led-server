@@ -39,16 +39,16 @@ class Visualizer(Spectrum, FullColor, FadeOut, Clear, AlternateColors, Transitio
         self.strip_config = config._strips[index]
         self.pixelReshaper = PixelReshaper(self.strip_config)
 
-        self.hasBegun = False
         self.audio_datas = []
         self.audio_data = []
         self.old_audio_data = []
         self.midi_datas = []
 
+        self.old_pixels = []
+
         self.initVizualiser()
 
     def initVizualiser(self):
-        # self.active_state = deepcopy(self.strip_config.active_state)
         self.active_state = self.strip_config.active_state
         self._number_of_pixels = self.strip_config._shapes[
             self.active_state.division_value]._number_of_pixels
@@ -121,7 +121,7 @@ class Visualizer(Spectrum, FullColor, FadeOut, Clear, AlternateColors, Transitio
 
     @staticmethod
     def clampToNewRange(value, old_min, old_max, new_min, new_max):
-        # poupi : dupplicate convertRange(value, [old_min, old_max], [new_min, new_max], False)
+        # performance improvements : dupplicate convertRange(value, [old_min, old_max], [new_min, new_max], False)
         new_value = (((value - old_min) * (new_max - new_min)) //
                      (old_max - old_min)) + new_min
         return new_value
@@ -142,7 +142,7 @@ class Visualizer(Spectrum, FullColor, FadeOut, Clear, AlternateColors, Transitio
         return pixels
 
     def applyMaxBrightness(self, pixels, max_brightness):
-        # poupi : test numpy perf
+        # performance improvements : test numpy perf
         return np.clip(pixels, 0, max_brightness)
 
     def drawFrame(self):
@@ -153,7 +153,7 @@ class Visualizer(Spectrum, FullColor, FadeOut, Clear, AlternateColors, Transitio
 
         pixels = []
 
-        # poupi : ref constante var against JSON files
+        # performance improvements : ref constante var against JSON files
 
         # SOUND BASED
         if(self.active_state.active_visualizer_effect == "scroll"):

@@ -58,7 +58,7 @@ class ModSwitcher:
 
         return new_value
 
-        #poupi : refactor
+        # performance improvements : refactor
         # returned value is either "0" or "value * increment" or "old_value + increment"
         # Below, the code is proposed
         # new_value = 0 # default case
@@ -163,8 +163,8 @@ class ModSwitcher:
                     velocity = midi_data["velocity"]
                     old_vizualizer_effect = self.active_state.active_visualizer_effect
                     # VISUALIZATIONS EFFECTS
-                    # poupi : switch caes + refactor message definition + handling
-                    # poupi : json file to handle "scroll", "energy", ... values limked to mode numeric values
+                    # performance improvements : switch caes + refactor message definition + handling
+                    # performance improvements : json file to handle "scroll", "energy", ... values limked to mode numeric values
                     if(mode >= 0 and mode < 16):
 
                         # SOUND BASED
@@ -301,7 +301,7 @@ class ModSwitcher:
 
                         elif(mode == 24):
                             self.active_state.blur_value = convertRange(
-                                velocity, [1, 127], [0.1, 8], rounded=False)
+                                velocity, [1, 127], [0.2, 16], rounded=False)
                             self.logger(
                                 self.strip_config.name, "is changing blur value to " + str(self.active_state.blur_value))
 
@@ -309,8 +309,8 @@ class ModSwitcher:
                             # print(velocity)
                             self.active_state.division_value = convertRange(
                                 velocity, [1, 127], [0, 3], rounded=True)
-                            self.visualizer.resetFrame()
                             self.visualizer.initVizualiser()
+                            self.visualizer.resetFrame()
                             self.logger(
                                 self.strip_config.name, "is changing division value to " + str(self.active_state.division_value))
 
