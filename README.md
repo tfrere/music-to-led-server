@@ -15,8 +15,7 @@ This is a part of the music to led project
 # Table of contents
 
 - [Installation](#installation)
-  - [Python part](#python-part)
-    - [Raspberry Pi installation](#raspberry-pi-installation)
+  - [Binary](#binary)
   - [Arduino part](#arduino-part)
     - [Advanced arduino device](#advanced-arduino-device)
 - [Configuration](#configuration)
@@ -41,7 +40,7 @@ This is a part of the music to led project
 
 # Installation
 
-## Python part
+## Binary
 
 First, download binary file that can be downloaded [here(DEADLINK)](/toto)
 
@@ -70,10 +69,6 @@ First, download binary file that can be downloaded [here(DEADLINK)](/toto)
 **Shell interface**
 
 <img src="images/launch.gif" width="100%" alt="launch">
-
-## Raspberry Pi installation
-
-Raspberry installation tutorial can be found in the [pyton folder](/python).
 
 ## Arduino part
 
@@ -380,7 +375,7 @@ By priority order
 - Plug and play feature on all ports
 - Effect blender
 - Handling more than the WS2812B led strip
-- DMX handling
+- DMX handling ?
 
 # Python installlation for developement purpose
 
@@ -429,7 +424,9 @@ sudo apt-get install python3-rtmidi
 sudo apt-get install libatlas-base-dev
 sudo apt-get install python3-numpy
 
-## Release
+## Licence
+
+This project was developed by Thibaud FRERE on MIT Licence.
 
 ## Contribute
 
