@@ -6,5 +6,5 @@ __pycache__/
 # py2app
 /dist
 /build
-/music2led
+/musicToLedServer
 /bin
