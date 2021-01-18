@@ -1,4 +1,4 @@
-name: music-2-led
+name: music-to-led-server
 channels:
   - conda-forge
 dependencies:

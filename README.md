@@ -44,7 +44,7 @@ This repository is a part from the [**music to led project**](https://github.com
 First, download binary file that can be downloaded [here(DEADLINK)](/toto)
 
 ```
-./music2led --help
+./musicToLedServer --help
 
 -h, --help            show this help message and exit
 -l, --list-devices    list available devices
@@ -76,8 +76,8 @@ First, download binary file that can be downloaded [here(DEADLINK)](/toto)
 Once the wiring is finished and your code uploaded, you can test it following these simple steps :
 
 - 1. Connect the arduino to your computer through usb cable
-- 2. run ./audio-2-led --list-devices and find the corresponding usb name
-- 3. run ./audio-2-led --test-serial-device "YOUR CORRESPONDING USB NAME"
+- 2. run ./musicToLedServer --list-devices and find the corresponding usb name
+- 3. run ./musicToLedServer --test-serial-device "YOUR CORRESPONDING USB NAME"
 
 # Configuration
 
@@ -87,7 +87,7 @@ To help you to configure your CONFIG.yml correctly, there is a little helper tha
 will list all available ports for each of them.
 
 ```
-./music2led --list-devices
+./musicToLedServer --list-devices
 ```
 
 ## Audio channels
@@ -133,7 +133,7 @@ To virtually test MIDI, you can use VMPK. It's a virtual midi keyboard right in 
 You can validate the config file with
 
 ```
-./music2led --test-config-file "./CONFIG.yml"
+./musicToLedServer --test-config-file "./CONFIG.yml"
 ```
 
 ### Sample config file
@@ -359,9 +359,9 @@ Code is compatible with Python 3.7.
 ```
 # on mint and for linux more generally you may have to install jack before
 # apt-get install libjack-dev libasound2-dev
-conda env create --name audio-2-led --file environment.yml
+conda env create --name music-to-led-server --file environment.yml
 
-conda activate audio-2-led
+conda activate music-to-led-server
 ```
 
 ## Deploy on raspberrypi
@@ -391,6 +391,7 @@ touch ssh
 
 ## Installation
 
+```
 git clone http://github.com/tfrere/music-to-led-server
 pip3 install -r requirements.txt
 pip3 install mido
@@ -398,6 +399,7 @@ sudo apt-get install python3-pyaudio
 sudo apt-get install python3-rtmidi
 sudo apt-get install libatlas-base-dev
 sudo apt-get install python3-numpy
+```
 
 ## Licence
 

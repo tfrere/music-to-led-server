@@ -3,7 +3,7 @@
 block_cipher = None
 
 
-a = Analysis(['music2led.py'],
+a = Analysis(['musicToLedServer.py'],
              pathex=['backend/'],
              binaries=[],
              datas=[],
@@ -21,7 +21,7 @@ exe = EXE(pyz,
           a.scripts,
           [],
           exclude_binaries=True,
-          name='music2led',
+          name='musicToLedServer',
           debug=False,
           bootloader_ignore_signals=False,
           strip=False,
@@ -34,4 +34,4 @@ coll = COLLECT(exe,
                strip=False,
                upx=True,
                upx_exclude=[],
-               name='music2led')
+               name='musicToLedServer')

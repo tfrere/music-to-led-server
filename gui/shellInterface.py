@@ -157,7 +157,7 @@ class ShellInterface():
         # self.print(self.term.move(y + 2, 0) + self.textWithColor(self.rgb_inner_border_color[0],self.rgb_inner_border_color[1], self.rgb_inner_border_color[2], "├" + ("─" * (60 - 2)) + "┤"))
 
         space = 2
-        self.absolutePrint(y + 1, space, "Music To Led v0.1.1")
+        self.absolutePrint(y + 1, space, "Music To Led v1.0.0-alpha")
 
         # add STATES nb
         self.absolutePrint(y + 2, space, "Strips: " + str(len(self.config._strips)) + " | audio source: " +
