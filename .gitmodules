@@ -1,0 +1,3 @@
+[submodule "outputs/serial"]
+	path = outputs/serial
+	url = https://github.com/tfrere/python-to-led-strip
