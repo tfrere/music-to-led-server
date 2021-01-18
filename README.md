@@ -72,31 +72,13 @@ First, download binary file that can be downloaded [here(DEADLINK)](/toto)
 
 ## Arduino part
 
-In addition of the software, you need to create an arduino "serial to led" device.
-
-As each led project has very specific needs, i kept this part as simple as possible.
-
-Arduino code can be found [here](arduino/nano-serial-to-led-case/serial-case.ino).
-
-PS : For now, please consider not using more than 254 leds by arduino.
-
-![electronic-scheme](images/simple-electronic-scheme.png)
+[Build an arduino case](https://github.com/tfrere/python-to-led-strip)
 
 Once the wiring is finished and your code uploaded, you can test it following these simple steps :
 
 - 1. Connect the arduino to your computer through usb cable
 - 2. run ./audio-2-led --list-devices and find the corresponding usb name
 - 3. run ./audio-2-led --test-serial-device "YOUR CORRESPONDING USB NAME"
-
-### Advanced arduino device
-
-If you need a complete packaged product, there is a more advanced version available in the [Arduino folder](/arduino/).
-
-You will find :
-
-- OBJ of 3d printed arduino cases
-- Complete electronic scheme
-- Device assembly and code upload tutorial
 
 # Configuration
 
