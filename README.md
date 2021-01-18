@@ -10,14 +10,13 @@
 
 #
 
-This is a part of the music to led project
+This repository is a part from the [**music to led project**](https://github.com/tfrere/music-to-led).
 
 # Table of contents
 
 - [Installation](#installation)
   - [Binary](#binary)
   - [Arduino part](#arduino-part)
-    - [Advanced arduino device](#advanced-arduino-device)
 - [Configuration](#configuration)
   - [Audio channels](#audio-channels)
     - [Virtual audio sources](#virtual-audio-source)
@@ -342,17 +341,11 @@ All the examples are based on a ["red", "green", "blue"] color scheme.
 | <img src="https://github.com/tfrere/music-to-led/blob/master/images/nothing.gif" width="150px" height="20px" />          | D#-0        | **change_chunk_size**          | Change active max_brightness. <br/><br/><ul><li>The chosen chunk_size is based on the note's velocity.</li></ul>                                                                                                               |
 | <img src="https://github.com/tfrere/music-to-led/blob/master/images/nothing.gif" width="150px" height="20px" />          | D#-0        | **change_state**               | Change active state. <br/><br/><ul><li>The chosen state is based on the note's velocity. If the note's velocity is higher than the **states parameter** length, take the next state.</li></ul>                                 |
 
-# Credits
-
-This project was strongly inspired by the great [audio-reactive-led-strip](https://github.com/scottlawsonbc/audio-reactive-led-strip). It still remains parts of his visualizers and audio processing code.
-
 # Contribute
 
 If you have any idea to improve this project or any problem using this, please feel free to upload an [issue](https://github.com/tfrere/music-to-led/issues).
 
 # Future Roadmap
-
-By priority order
 
 - Plug and play feature on all ports
 - Effect blender
@@ -398,7 +391,7 @@ touch ssh
 
 ## Installation
 
-git clone http://github.com/tfrere/music-to-led
+git clone http://github.com/tfrere/music-to-led-server
 pip3 install -r requirements.txt
 pip3 install mido
 sudo apt-get install python3-pyaudio
