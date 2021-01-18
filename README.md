@@ -5,9 +5,8 @@
 <a href="https://github.com/tfrere/music-to-led-server#licence"><img src="https://img.shields.io/badge/licence-MIT-green" alt="Licence"></a>
 <a href="https://github.com/tfrere/music-to-led-server"><img src="https://img.shields.io/badge/platform-osx--64%20%7C%20linux--64-lightgrey" alt="Platform support"></a>
 <a href="https://github.com/tfrere/music-to-led-server"><img src="https://img.shields.io/github/last-commit/tfrere/music-to-led-server" alt="Last update"></a>
+<a href="https://github.com/tfrere/music-to-led-server"><img src="https://img.shields.io/github/v/tag/tfrere/music-to-led-server" alt="Current version"></a>
 </p>
-
-<!-- <a href="https://github.com/tfrere/music-to-led-server"><img src="https://img.shields.io/github/v/tag/tfrere/music-to-led-server" alt="Current version"></a> -->
 
 #
 
