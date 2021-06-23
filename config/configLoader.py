@@ -77,7 +77,7 @@ class Config():
         is_serial_enabled=True,
         debug=False,
         verbose=False,
-        scene=[],
+        scene_camera={"x":0,"y":0,"z":-6},
         color_schemes=[["red", "green", "blue"]],
         audio_ports=[
             {
@@ -104,6 +104,7 @@ class Config():
         self._file_name = file_name
         self.desirated_framerate = desirated_framerate
         self.display_shell_interface = display_shell_interface
+        self.scene_camera = scene_camera
         self.is_zmq_api_enabled = is_zmq_api_enabled
         self.is_serial_enabled = is_serial_enabled
         self._delay_between_frames = 1 / desirated_framerate
@@ -202,6 +203,7 @@ class ConfigLoader():
                    or not "display_shell_interface" in file
                    or not "is_zmq_api_enabled" in file
                    or not "is_serial_enabled" in file
+                   or not "scene_camera" in file
                    or not "audio_ports" in file
                    or not "strips" in file):
                     raise TypeError(
@@ -213,6 +215,7 @@ class ConfigLoader():
                     display_shell_interface=file["display_shell_interface"],
                     is_zmq_api_enabled=file["is_zmq_api_enabled"],
                     is_serial_enabled=file["is_serial_enabled"],
+                    scene_camera=file["scene_camera"],
                     color_schemes=file["color_schemes"],
                     audio_ports=file["audio_ports"],
                     strips=file["strips"],

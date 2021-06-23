@@ -109,6 +109,14 @@ class PixelReshaper:
         tmp = []
         tmp = pixels[:, :number_of_pixels]
 
+
+        # this is an attempt to reverse scroll effect properly
+        # if (self.strip_config.active_state.active_visualizer_effect == "scroll"):
+        #     print("pixel reshaper reversePixel is triggered")
+        #     return tmp
+        # else:
+        #     return tmp[:, ::-1]
+
         return tmp[:, ::-1]
 
 
@@ -189,3 +197,6 @@ if __name__ == "__main__":
             pixelReshaper.reshapeFromPixels(pixels)
         )
         time.sleep(.2)
+
+
+

@@ -35,8 +35,8 @@ class AlternateColors():
         relative_speed = self.active_state.time_interval / 50
         if (relative_speed < 2):
             relative_speed = 2
-        self.pixels = np.roll(
-            self.pixels, int(1 * (self._timeSinceStart.getMs() / 100) * relative_speed) + 1, axis=1)
+        self.pixels = self.roll(self.pixels, int(1 * (self._timeSinceStart.getMs() / 100) * relative_speed) + 1)
+        
         return self.pixelReshaper.reshapeFromPixels(self.pixels)
 
     def visualizeAlternateColorShapes(self):
@@ -56,6 +56,8 @@ class AlternateColors():
         self.pixelReshaper.initActiveShape()
 
         for x, strip in enumerate(self.pixelReshaper._strips):
+            # to do : make a reverse state to this effect
+            # if(self.active_state.is_reverse):
             which_color += 1
             if(which_color >= len(color_scheme)):
                 which_color = 0

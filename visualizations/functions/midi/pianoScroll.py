@@ -7,19 +7,6 @@ from scipy.ndimage.filters import gaussian_filter1d
 def getValueFromPercentage(value, percentage):
     return value / 100 * percentage
 
-
-# def shiftArray(arr, num, decrease_amount):
-#     value = arr[0] - decrease_amount
-#     if(value < 0):
-#         value = 0
-#     arr = np.roll(arr, num)
-#     if num < 0:
-#         arr[num:] = value
-#     elif num > 0:
-#         arr[:num] = value
-#     return arr
-
-
 def applyGradientDecrease(pixels):
     pixels_length = len(pixels[0])
     for i in range(pixels_length):
@@ -29,23 +16,6 @@ def applyGradientDecrease(pixels):
             pixels[1][i] = pixels[1][i] - i / pixels_length * 2
         if(pixels[2][i] > 0):
             pixels[2][i] = pixels[2][i] - i / pixels_length * 2
-    # print(pixels)
-
-
-# def shiftPixels(pixels):
-#     pixels[0] = np.roll(pixels[0], 1)
-#     pixels[1] = np.roll(pixels[1], 1)
-#     pixels[2] = np.roll(pixels[2], 1)
-#     pixels[0][0] = pixels[0][1]
-#     pixels[1][0] = pixels[1][1]
-#     pixels[2][0] = pixels[1][1]
-
-
-# def shiftPixelsSmoothly(pixels):
-#     pixels[0] = shiftArray(pixels[0], 1, 5)
-#     pixels[1] = shiftArray(pixels[1], 1, 5)
-#     pixels[2] = shiftArray(pixels[2], 1, 5)
-
 
 def putPixel(strip, ledIndex, r, g, b, velocity):
     if(ledIndex < len(strip[0]) and ledIndex > -len(strip[0])):
@@ -79,7 +49,7 @@ class PianoScroll():
                 self.pitch = midi_note["pitch"]
 
         roll_value = int(1 * (self.active_state.time_interval / 100)) + 1
-        self.pixels = np.roll(self.pixels, roll_value, axis=1)
+        self.pixels = self.roll(self.pixels, roll_value)
 
         if(len(self.piano_scroll_notes_on) > 0):
             which_color = 0
@@ -101,8 +71,4 @@ class PianoScroll():
             for i in range(roll_value):
                 putPixel(self.pixels, i, 0, 0, 0, 100)
 
-        # applyGradientDecrease(self.pixels)
-
-        # print(self.pixels)
-        # time.sleep(.028)
         return self.pixelReshaper.reshapeFromPixels(self.pixels)

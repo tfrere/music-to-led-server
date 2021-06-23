@@ -73,7 +73,7 @@ class ModSwitcher:
     def swapListElemPositions(listAttribute, pos1, pos2):
         listAttribute[pos1], listAttribute[pos2] = listAttribute[pos2], listAttribute[pos1]
         return listAttribute
-    
+
     @staticmethod
     def moveListElemPosition(listAttribute, pos1, pos2):
         elemToMove = listAttribute[pos1]
@@ -103,13 +103,13 @@ class ModSwitcher:
                                 self.strip_config.states[new_active_state_index])
                             self.active_state = self.strip_config.active_state
                             self.config._strips[self.strip_index].active_state_index = new_active_state_index
-   
+
                             self.config.saveToYmlFile()
 
                             self.has_states_changed = True
 
                             self.visualizer.initVizualiser()
-                             
+
                             self.logger(self.strip_config.name,
                                         "is adding new state named " + midi_data["data"])
 
@@ -122,7 +122,8 @@ class ModSwitcher:
                             name = midi_data["data"]
 
                             print("updating state with name -> " + name)
-                            print("name being  overrided  -> " + self.strip_config.active_state.name)
+                            print("name being  overrided  -> " +
+                                  self.strip_config.active_state.name)
 
                             self.strip_config.states[self.strip_config.active_state_index] = self.active_state
 
@@ -141,9 +142,11 @@ class ModSwitcher:
                             # print(self.strip_config.states)
                             # print(self.strip_config.active_state_index)
                             if(self.strip_config.active_state_index == int(orders[0])):
-                                self.strip_config.active_state_index = int(orders[1])
+                                self.strip_config.active_state_index = int(
+                                    orders[1])
                             elif(self.strip_config.active_state_index == int(orders[1])):
-                                self.strip_config.active_state_index = int(orders[0])
+                                self.strip_config.active_state_index = int(
+                                    orders[0])
 
                             self.strip_config.states = self.moveListElemPosition(
                                 self.strip_config.states, int(orders[0]), int(orders[1]))
@@ -247,7 +250,7 @@ class ModSwitcher:
                         elif(mode == 15):
                             self.active_state.active_visualizer_effect = "clear_frame"
                         elif(mode == 16):
-                            self.active_state.active_visualizer_effect = "fire"
+                            self.active_state.active_visualizer_effect = "full_hue"
 
                         # LOGGER
                         if(old_vizualizer_effect != self.active_state.active_visualizer_effect):

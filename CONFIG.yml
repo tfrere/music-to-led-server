@@ -1,7 +1,11 @@
 desirated_framerate: 60
-display_shell_interface: true
+display_shell_interface: false
+scene_camera:
+  x: 0
+  y: 0
+  z: -6.2
 is_zmq_api_enabled: true
-is_serial_enabled: false
+is_serial_enabled: true
 color_schemes:
   - - red
     - green
@@ -17,6 +21,13 @@ audio_ports:
     name: Built-in Microphone
     number_of_audio_samples: 24
     sampling_rate: 44000
+  - max_frequency: 12000
+    min_frequency: 200
+    min_volume_threshold: 1.0e-07
+    n_rolling_history: 4
+    name: Loopback Audio
+    number_of_audio_samples: 24
+    sampling_rate: 44000
 strips:
   - name: Horizontal Bar
     serial_port_name: /dev/tty.usbserial-A50285BI
@@ -25,8 +36,9 @@ strips:
     midi_ports_for_changing_mode:
       - Audio2Led ChangeMod Bar 1
     midi_ports_for_visualization:
+      - Audio2Led Synth
     original_physical_shape:
-      - 40
+      - 24
     midi_range:
       - 47
       - 73
@@ -34,17 +46,17 @@ strips:
       shapes:
         - pixel_range:
             - 0
-            - 40
+            - 24
           svg_string: M0,0 T300,0
     states:
       - name: Example 1
-        active_visualizer_effect: scroll
+        active_visualizer_effect: full_hue
         active_color_scheme_index: 0
-        active_audio_channel_index: 0
+        active_audio_channel_index: 1
         audio_samples_filter_min: 0
         audio_samples_filter_max: 24
         audio_gain: 1
-        audio_decay: 0.1
+        audio_decay: 0.2
         division_value: 0
         max_brightness: 255
         time_interval: 1
@@ -52,3 +64,43 @@ strips:
         blur_value: 0.1
         is_reverse: false
         is_mirror: false
+  # - name: Horizontal Bar 2
+  #   serial_port_name: /dev/tty.usbserial-A50285BI2
+  #   active_state_index: 0
+  #   is_online: false
+  #   midi_ports_for_changing_mode:
+  #     - Audio2Led ChangeMod Bar 2
+  #   midi_ports_for_visualization:
+  #     - Audio2Led Synth
+  #   original_physical_shape:
+  #     - 20
+  #     - 20
+  #   midi_range:
+  #     - 47
+  #     - 73
+  #   scene:
+  #     shapes:
+  #       - pixel_range:
+  #           - 0
+  #           - 20
+  #         svg_string: M0,100 T140,100
+  #       - pixel_range:
+  #           - 0
+  #           - 20
+  #         svg_string: M160,100 T300,100
+  #   states:
+  #     - name: Example 1
+  #       active_visualizer_effect: scroll
+  #       active_color_scheme_index: 0
+  #       active_audio_channel_index: 0
+  #       audio_samples_filter_min: 0
+  #       audio_samples_filter_max: 24
+  #       audio_gain: 1
+  #       audio_decay: 0.2
+  #       division_value: 0
+  #       max_brightness: 255
+  #       time_interval: 1
+  #       chunk_size: 7
+  #       blur_value: 0.1
+  #       is_reverse: false
+  #       is_mirror: false

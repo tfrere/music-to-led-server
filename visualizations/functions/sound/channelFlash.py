@@ -47,16 +47,16 @@ class ChannelFlash():
                 max_intensity = len(self.pixelReshaper._strips[i][0]) / 2
 
             if(intensity > max_intensity):
-                intensity = max_intensity - 1
+                intensity = max_intensity - self.active_state.audio_decay
 
             stripItensities.append(intensity)
             maxStripItensities.append(intensity)
 
             if(self.oldStripItensities != [] and stripItensities[i] < self.oldStripItensities[i]):
-                stripItensities[i] = self.oldStripItensities[i] - 1
+                stripItensities[i] = self.oldStripItensities[i] - self.active_state.audio_decay
 
             if(self.oldMaxStripItensities != [] and maxStripItensities[i] < self.oldMaxStripItensities[i]):
-                maxStripItensities[i] = self.oldMaxStripItensities[i] - 1
+                maxStripItensities[i] = self.oldMaxStripItensities[i] - self.active_state.audio_decay
 
         self.oldStripItensities = stripItensities
         self.oldMaxStripItensities = maxStripItensities

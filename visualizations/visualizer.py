@@ -27,11 +27,12 @@ from visualizations.functions.generic.fullColor import FullColor
 from visualizations.functions.generic.fadeOut import FadeOut
 from visualizations.functions.generic.clear import Clear
 from visualizations.functions.generic.fire import Fire
+from visualizations.functions.generic.fullHue import FullHue
 
 from scipy.ndimage.filters import gaussian_filter1d
 
 
-class Visualizer(Spectrum, FullColor, FadeOut, Clear, AlternateColors, TransitionColors, DrawLine, Scroll, ChannelIntensity, ChannelFlash, Energy, PianoNote, PianoEcho, PianoScroll, Fire, PitchwheelFlash):
+class Visualizer(Spectrum, FullColor, FadeOut, Clear, AlternateColors, TransitionColors, DrawLine, Scroll, ChannelIntensity, ChannelFlash, Energy, PianoNote, PianoEcho, PianoScroll, Fire, FullHue, PitchwheelFlash):
 
     def __init__(self, config, index):
         """ The main class that contain all viz functions """
@@ -83,7 +84,7 @@ class Visualizer(Spectrum, FullColor, FadeOut, Clear, AlternateColors, Transitio
 
         self.initFullColor()
         self.initFadeOut()
-        self.initFire()
+        self.initFullHue()
         self.resetFrame()
 
         self.pixelReshaper.initActiveShape()
@@ -129,6 +130,14 @@ class Visualizer(Spectrum, FullColor, FadeOut, Clear, AlternateColors, Transitio
             a[1]*(1 - t) + b[1]*t,
             a[2]*(1 - t) + b[2]*t
         ]
+
+    def roll(self, array, roll_value):
+        # this is an attempt to reverse scroll effect properly
+        # if(self.active_state.is_reverse):
+        #     return np.roll(array, -roll_value, axis=1)
+        # else :
+        #     return np.roll(array, roll_value, axis=1)
+        return np.roll(array, roll_value, axis=1)
 
     @staticmethod
     def getColorIndexes(index, len):
@@ -226,8 +235,8 @@ class Visualizer(Spectrum, FullColor, FadeOut, Clear, AlternateColors, Transitio
             pixels = self.VisualizeFadeOut()
         elif(self.active_state.active_visualizer_effect == "clear_frame"):
             pixels = self.visualizeClear()
-        elif(self.active_state.active_visualizer_effect == "fire"):
-            pixels = self.visualizeFire()
+        elif(self.active_state.active_visualizer_effect == "full_hue"):
+            pixels = self.visualizeFullHue()
 
         else:
             print(

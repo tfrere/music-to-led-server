@@ -51,7 +51,7 @@ signal.signal(signal.SIGTERM, kill_proc_tree)
 
 
 def zmqLiveDataStreamProcess(shared_list):
-    setproctitle.setproctitle("music-2-led - zmq live data stream")
+    setproctitle.setproctitle("music-to-led-server - zmq live data stream")
 
     host = 'tcp://127.0.0.1:8000'
     print('└-> Init zmq socket process running on : {}'.format(host))
@@ -63,7 +63,7 @@ def zmqLiveDataStreamProcess(shared_list):
 
 
 def audioProcess(shared_list):
-    setproctitle.setproctitle("music-2-led - audio process")
+    setproctitle.setproctitle("music-to-led-server - audio process")
 
     config = shared_list[0]
     ports = ""
@@ -94,7 +94,7 @@ def serialProcess(index, shared_list):
     number_of_pixels = strip_config._shapes[active_state.division_value]._number_of_pixels
 
     setproctitle.setproctitle(
-        "music-2-led - serial process - " + serial_port_name)
+        "music-to-led-server - serial process - " + serial_port_name)
     print("└-> Init Serial process on port : ", serial_port_name)
 
     serial = Serial(
@@ -122,7 +122,7 @@ def stripProcess(index, shared_list):
     strip_config._midi_logs = []
 
     setproctitle.setproctitle(
-        "music-2-led - strip process - " + strip_config.name)
+        "music-to-led-server - strip process - " + strip_config.name)
     print("└-> Init strip process : ", strip_config.name)
 
     framerateCalculator = FramerateCalculator(config.desirated_framerate)
@@ -181,7 +181,7 @@ if __name__ == "__main__":
     # for windows
     multiprocessing.freeze_support()
 
-    setproctitle.setproctitle("music-2-led - main process")
+    setproctitle.setproctitle("music-to-led-server - main process")
 
     parser = argparse.ArgumentParser()
 

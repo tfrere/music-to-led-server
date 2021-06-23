@@ -76,27 +76,27 @@ class PianoEcho():
         for x, strip in enumerate(self.pixelReshaper._strips):
 
 
-            self.pixelReshaper._strips[x] = np.roll(
-                self.pixelReshaper._strips[x], roll_value, axis=1)
+            self.pixelReshaper._strips[x] = self.roll(
+                self.pixelReshaper._strips[x], roll_value)
             for y in range(roll_value):
                 putPixel(self.pixelReshaper._strips[x], y, 0, 0, 0)
 
 
-            # self.pixelReshaper._strips[x] = np.roll(
-            #     self.pixelReshaper._strips[x], roll_value, axis=1)
+            # self.pixelReshaper._strips[x] = self.roll(
+            #     self.pixelReshaper._strips[x], roll_value)
             # self.pixelReshaper._strips[x] = shift(
             #     self.pixelReshaper._strips[x], 5, cval=0)
 
             # for y in range(roll_value):
             #     putPixel(self.pixelReshaper._strips[x], y, 0, 0, 0)
 
-            color_index = 0
+            # color_index = 0
             # pour chaque note active
             for i, note in enumerate(self.piano_echo_notes_on):
                 # si on est dans la strip correspondante
                 if (note["midi_range_index"] == x):
                     # print(color_index)
-                    active_color_index = color_index % len(color_scheme)
+                    active_color_index = 0 # color_index % len(color_scheme)
 
                     # color transition over  time
                     ms = self._timeSinceStart.getMs()
@@ -116,7 +116,7 @@ class PianoEcho():
                     # g = color_scheme[active_color_index][1]
                     # b = color_scheme[active_color_index][2]
 
-                    color_index += 1
+                    # color_index += 1
                     for y in range(roll_value):
                         putPixel(self.pixelReshaper._strips[x], y, r, g, b)
                 # print(strip)
